@@ -1,12 +1,24 @@
-export const addTask = (text, checkbox) => {
-  return {
-    type: "ADD_TASK",
-    payload: {
-      text,
-      checkbox,
-    },
+export const addTask = (text, checkbox) => ({
+  type: "ADD_TASK",
+  payload: {
+    text,
+    checkbox,
+  },
+});
+export const fetchTasks = () => 
+  async (dispatch) => {
+    const resp = await fetch(
+      "https://61d153f0da87830017e591da.mockapi.io/KursReact"
+    );
+    if (resp.ok) {
+      const data = await resp.json();
+      dispatch({
+        type: "SET_TASKS",
+        payload: data,
+      });
+    }
   };
-};
+
 
 export const removeTask = (id) => {
   return {
@@ -27,6 +39,6 @@ export const completeaAll = () => {
 };
 export const cleaAll = () => {
   return {
-    type: "CLEAR"
+    type: "CLEAR",
   };
 };

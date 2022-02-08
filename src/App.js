@@ -11,13 +11,16 @@ import {
   toggleComlet,
   completeaAll,
   cleaAll,
+  fetchTasks
 } from "./redux/actions/tasks.js";
 
 function App() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  console.log(state);
-  console.log(dispatch);
+ 
+  React.useEffect(()=>{
+    dispatch(fetchTasks())
+  },[])
 
   const handleClickAdd = (text, checkbox) => {
     dispatch(addTask(text, checkbox));

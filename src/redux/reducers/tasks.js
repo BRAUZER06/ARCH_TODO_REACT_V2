@@ -1,13 +1,10 @@
-const initialState = [
-  {
-    id: 1,
-    text: "Это задача создана через редюсер",
-    completed: true,
-  },
-];
+const initialState = [];
 
 export function tasksReducer(state = initialState, action) {
   switch (action.type) {
+    case "SET_TASKS":
+      return action.payload;
+
     case "ADD_TASK":
       return [
         ...state,
@@ -39,7 +36,7 @@ export function tasksReducer(state = initialState, action) {
 
     case "CLEAR":
       return [];
-    
+
     default:
       return state;
   }
