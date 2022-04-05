@@ -1,10 +1,10 @@
 const initialState = {
-  filterBy: "all",
+  filterBy: 'all',
 };
 
-export function filterReducer(state = initialState, action) {
+export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SET_FILTER":
+    case 'SET_FILTER':
       return {
         ...state,
         filterBy: action.payload,
@@ -13,4 +13,4 @@ export function filterReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};

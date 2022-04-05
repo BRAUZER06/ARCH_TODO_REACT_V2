@@ -1,14 +1,15 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { filterReducer } from "./reducers/filter";
-import { tasksReducer } from "./reducers/tasks";
-
-import thunk from "redux-thunk";
+import { createStore, combineReducers } from 'redux';
+import { filterReducer } from './reducers/filter';
+import { tasksReducer } from './reducers/tasks';
+import { formReducer } from './reducers/form';
 
 const rootReducer = combineReducers({
-  filter: filterReducer,
+  form: formReducer,
   tasks: tasksReducer,
+  filter: filterReducer,
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer);
+
 
 export default store;
